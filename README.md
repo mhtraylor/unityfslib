@@ -10,7 +10,7 @@ project are:
 
 +  FSharp shim functions for the most common uses of the Unity API, with an emphasis on function composition and pipelining
 +  Certain useful types, type extensions, and computation expressions to make working with the Unity API and types easier and
-more *a proproo* to the functional paradigm.
+more *a propro* to the functional paradigm.
 +  A community wiki and full example projects, *a la* the Unity Community wiki, in order to share example code with tips, tricks,
 and best practices for using FSharp with the Unity game engine.
 
