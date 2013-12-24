@@ -6,6 +6,7 @@ open UnityEngine
 
 type t = Bounds
 
+
 let create c s = Bounds(c,s)
 
 let intersectRay r (b:t) = b.IntersectRay(ray=r)
@@ -22,7 +23,7 @@ let intersects (b0:t) b1 = b0.Intersects(b1)
 let sqrdist p (b:t) = b.SqrDistance(p)
 
 let getAll (g:GameObject) =
-    GameObject.getChildComponents<Renderer> g
+    GameObject.getAllInChild<Renderer> g
     |> Array.map (Option.fold (fun _ x -> x.bounds) g.renderer.bounds)
 
 let encapAllunsafe (g:GameObject) = 
