@@ -50,6 +50,7 @@
     <Compile Include="Color.fs" />
     <Compile Include="Bounds.fs" />
     <Compile Include="Mesh.fs" />
+    <Compile Include="Physics.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
