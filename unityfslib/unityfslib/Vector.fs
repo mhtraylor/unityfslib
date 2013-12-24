@@ -7,8 +7,6 @@ module Vector2 =
 
     type t = Vector2
 
-    let vec (x:u) = Vector2(x |> fst |> float32, x |> snd |> float32)
-
     let map f (v:t) = Vector2(f v.x, f v.y)
 
     let map2 f (a:t) (b:t) = Vector2(f a.x b.x, f a.y b.y)
