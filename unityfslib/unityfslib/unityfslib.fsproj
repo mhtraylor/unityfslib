@@ -43,6 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base.fs" />
     <Compile Include="Object.fs" />
     <Compile Include="Transform.fs" />
     <Compile Include="GameObject.fs" />
