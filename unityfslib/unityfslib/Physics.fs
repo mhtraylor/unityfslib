@@ -39,6 +39,6 @@ let castLayer layer_mask dist dir shape =
     | Line (s,e) -> Physics.Linecast(s,e,&hit,layer_mask)
     | Sphere (p,r) -> Physics.SphereCast(p,r,dir,&hit,dist,layer_mask)
     | Capsule (s,e,r) -> Physics.CapsuleCast(s,e,r,dir,&hit,dist) 
-    |> Option.rev hit
+    |> Option.fromBool hit
 
 let cast dir = castLayer Physics.DefaultRaycastLayers Mathf.Infinity dir 
