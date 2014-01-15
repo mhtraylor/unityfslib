@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Debug\FSharp_Unity3D_Template.XML</DocumentationFile>
+    <OtherFlags>--sig:Signatures.fsi</OtherFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,31 @@
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Release\FSharp_Unity3D_Template.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
+  <ItemGroup>
+    <Compile Include="Base.fs" />
+    <Compile Include="Object.fsi" />
+    <Compile Include="Object.fs" />
+    <Compile Include="Transform.fsi" />
+    <Compile Include="Transform.fs" />
+    <Compile Include="GameObject.fsi" />
+    <Compile Include="GameObject.fs" />
+    <Compile Include="Vector.fsi" />
+    <Compile Include="Vector.fs" />
+    <Compile Include="Color.fsi" />
+    <Compile Include="Color.fs" />
+    <Compile Include="Bounds.fsi" />
+    <Compile Include="Bounds.fs" />
+    <Compile Include="Mesh.fsi" />
+    <Compile Include="Mesh.fs" />
+    <Compile Include="Physics.fsi" />
+    <Compile Include="Physics.fs" />
+    <None Include="ScratchPad.fsx" />
+    <None Include="SignatureGen.fsx" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=2.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -42,21 +68,6 @@
       <HintPath>UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Base.fs" />
-    <Compile Include="Object.fs" />
-    <Compile Include="Transform.fs" />
-    <Compile Include="GameObject.fs" />
-    <Compile Include="Vector.fs" />
-    <Compile Include="Color.fs" />
-    <Compile Include="Bounds.fs" />
-    <Compile Include="Mesh.fs" />
-    <Compile Include="Physics.fs" />
-  </ItemGroup>
-  <PropertyGroup>
-    <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
-  </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
