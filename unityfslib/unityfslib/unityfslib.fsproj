@@ -54,8 +54,6 @@
     <Compile Include="Mesh.fs" />
     <Compile Include="Physics.fsi" />
     <Compile Include="Physics.fs" />
-    <None Include="ScratchPad.fsx" />
-    <None Include="SignatureGen.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
