@@ -14,3 +14,5 @@ module Option =
 
     let cond v = function true -> Some v | _ -> None
 
+    let pout p = if fst p then Some (snd p) else None
+
