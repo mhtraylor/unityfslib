@@ -7,7 +7,7 @@ type t = UnityEngine.Object
 
 let empty = Unchecked.defaultof<t>
 
-let exists (o:#t) =  o.Equals(null) |> not |> Option.cond o
+let exists (o:#t) =  obj.Equals(o,null) |> not |> Option.cond o
 
 let find<'a when 'a :> t> () = Object.FindObjectOfType<'a>()
 
