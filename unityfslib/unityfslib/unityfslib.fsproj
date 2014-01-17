@@ -38,22 +38,16 @@
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')" />
   <ItemGroup>
     <Compile Include="Base.fs" />
-    <Compile Include="Object.fsi" />
     <Compile Include="Object.fs" />
-    <Compile Include="Transform.fsi" />
     <Compile Include="Transform.fs" />
-    <Compile Include="GameObject.fsi" />
     <Compile Include="GameObject.fs" />
-    <Compile Include="Vector.fsi" />
     <Compile Include="Vector.fs" />
-    <Compile Include="Color.fsi" />
     <Compile Include="Color.fs" />
-    <Compile Include="Bounds.fsi" />
     <Compile Include="Bounds.fs" />
-    <Compile Include="Mesh.fsi" />
     <Compile Include="Mesh.fs" />
-    <Compile Include="Physics.fsi" />
+    <Compile Include="Plane.fs" />
     <Compile Include="Physics.fs" />
+    <Compile Include="TestBehaviours.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
@@ -66,6 +60,9 @@
       <HintPath>UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)$(TargetName).dll" "C:\Users\Public\Documents\Unity Projects\unityfslib_test\Assets\Scripts\" /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
