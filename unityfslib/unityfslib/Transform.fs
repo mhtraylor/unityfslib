@@ -13,10 +13,17 @@ let getChild idx (p:t) =
 
 let empty = Unchecked.defaultof<t>
 
-let toSeq (p:t) = Seq.cast<t> p
+let rec flatten (p:t) = seq {
+    yield p
+    for tr in Seq.cast<t> p do
+        yield! flatten tr
+    }
 
-let toList = toSeq >> Seq.toList
+let toSeq = flatten
 
-let toArray = toSeq >> Seq.toArray
+let toList = flatten >> Seq.toList
+
+let toArray = flatten >> Seq.toArray
 
 
+ 
