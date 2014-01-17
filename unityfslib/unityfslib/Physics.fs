@@ -10,4 +10,11 @@ let raycast dist ray =
     |> Option.cond r
 
 let raycastf f dist =
-    raycast dist >> Option.bind f
+    raycast dist >> Option.map f
+
+// FIX -- RaycastAll may return null array!
+let raycastAll dist ray =
+    let d = defaultArg dist Mathf.Infinity
+    let a = Physics.RaycastAll(ray,d)
+    a |> Array.isEmpty |> Option.cond a
+ 
