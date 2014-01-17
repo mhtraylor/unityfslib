@@ -47,7 +47,6 @@
     <Compile Include="Mesh.fs" />
     <Compile Include="Plane.fs" />
     <Compile Include="Physics.fs" />
-    <Compile Include="TestBehaviours.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
