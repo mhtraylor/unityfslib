@@ -6,29 +6,24 @@ open UnityEngine
 
 type t = Bounds
 
+let create ctr size = Bounds(ctr,size)
 
-let create c s = Bounds(c,s)
-
-let intersectRay r (b:t) = b.IntersectRay(ray=r)
-
-let intersectRayDist d r (b:t) = 
-    let d' = ref d
-    if b.IntersectRay(ray=r,distance=d') then
-        Some !d'
-    else
-        None
+let intersectRay ray (bnd:t) =
+    Option.pout <| bnd.IntersectRay(ray)
 
 let intersects (b0:t) b1 = b0.Intersects(b1)
 
-let sqrdist p (b:t) = b.SqrDistance(p)
+let getAll g =
+    g
+    |> GameObject.getAllInChild<Renderer>
+    |> Seq.map (fun rdr -> rdr.bounds)
 
-let getAll (g:GameObject) =
-    GameObject.getAllInChild<Renderer> g
-    |> Array.map (Option.fold (fun _ x -> x.bounds) g.renderer.bounds)
+let encap (b0:t) b1 =
+    let b' = create b0.center b0.size
+    b'.Encapsulate(bounds=b1)
+    b'
 
-let encapAllunsafe (g:GameObject) = 
-    g.GetComponentsInChildren<Renderer>() 
-    |> Array.iter (fun x -> g.renderer.bounds.Encapsulate(x.bounds))
-
-let encapAll (g:GameObject) = g |> getAll |> Array.iter (fun x -> g.renderer.bounds.Encapsulate(x))
+let encapAll g =
+    getAll g
+    |> Seq.fold encap g.renderer.bounds
 
