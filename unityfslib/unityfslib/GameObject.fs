@@ -12,7 +12,12 @@ let add<'a when 'a :> u> (g:t) =
     g.AddComponent<'a>()
 
 let get<'a when 'a :> u> (g:t) = 
-    g.GetComponent<'a>() |> Object.exists    
+    g.GetComponent<'a>() |> Object.exists
+    
+let require<'a when 'a :> u> g =
+    match g |> get<'a> with
+    | Some c -> c
+    | None   -> g |> add<'a>    
 
 let getInChild<'a when 'a :> u> (g:t) = 
     g.GetComponentInChildren<'a>() |> Object.exists
