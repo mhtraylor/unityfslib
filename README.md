@@ -5,8 +5,9 @@ API wrapper, wiki, and examples for using F# with the Unity 3D game engine.
 
 ## What It Do ##
 
-This library is under heavy development. Don't expect a release or cohensive documentation anytime soon. The goals of this
-project are:
+This library is under heavy development. Don't expect a release or cohensive documentation anytime soon. Most of the sweet action takes place on the [development branch](https://github.com/mhtraylor/unityfslib/tree/development) at the moment.
+
+The goals of this project are:
 
 +  FSharp shim functions for the most common uses of the Unity API, with an emphasis on function composition and pipelining
 +  Certain useful types, type extensions, and computation expressions to make working with the Unity API and types easier and
