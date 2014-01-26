@@ -218,6 +218,17 @@ module Color32 =
     let lerp n a b = Color32.Lerp(a, b, n)
 
 [<RequireQualifiedAccess>]
+module Rect =
+
+    type t = Rect
+
+    let create x y w h = Rect (x,y,w,h)
+
+    let createMinMax minX minY maxX maxY = Rect.MinMaxRect (minX,minY,maxX,maxY)
+
+    let contains pnt (r:t) = r.Contains(pnt:Vector3)
+
+[<RequireQualifiedAccess>]
 module Plane =
 
     let upward pos = Plane (Vector3.up, inPoint=pos)
